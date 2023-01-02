@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}
-    Autores
+    Libros
 {% endblock title %}
 
 
 {% block content %}
-    <h1>Este es el inicio de Autores</h1>
+    <h1>Este es el inicio de Libros</h1>
 
     <form action="" method="get">{% csrf_token %}
         <input placeholder="buscar" type="text" id="kword" name="kword">
+        <input type="date" name="date1" id="date1">
+        <input type="date" name="date2" id="date2">
         <button type="submit">Buscar</button>
     </form>
     <ul>
         
-        {% for a in autores %}
-            <li>{{a}}</li>
+        {% for a in books %}
+            <li>{{a.title}} <strong>-{{a.release_date}}-</strong></li>
         {% endfor %}
             
     </ul>
 {% endblock content %}
-    
     

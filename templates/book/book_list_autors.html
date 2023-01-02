@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    Libros Categoria
+{% endblock title %}
+
+
+{% block content %}
+    <h1>Lista de libros por autor</h1>
+        {{list_books}}
+        <!-- <ul>
+            {% for a in list_books %}
+            <li>{{a.title}} <strong>-{{a.release_date}}-</strong> {{a.autors}}</li>
+            {% endfor %}
+        </ul> -->
+            
+    
+{% endblock content %}

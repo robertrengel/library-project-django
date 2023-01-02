@@ -1,4 +1,12 @@
 from django.contrib import admin
 from .models import Autor
 # Register your models here.
-admin.site.register(Autor)
+
+class AutorAdmin(admin.ModelAdmin):
+    list_display = [
+        "firts_name",
+        "last_name",
+        "age",
+        "id"
+    ]
+admin.site.register(Autor,AutorAdmin)

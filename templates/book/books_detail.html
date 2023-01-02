@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+    Libros Categoria
+{% endblock title %}
+
+
+{% block content %}
+    <h1>Detall de libro</h1>
+        <p>{{book.title}}</p>
+        
+        {% for a in book.autors.all %}
+            <li>{{a}}</li>
+        {% endfor %}
+            
+        <!-- <ul>
+            {% for a in list_books %}
+            <li>{{a.title}} <strong>-{{a.release_date}}-</strong> {{a.autors}}</li>
+            {% endfor %}
+        </ul> -->
+            
+    
+{% endblock content %}
