@@ -5,6 +5,6 @@ from . import views
 app_name = "reader_app"
 
 urlpatterns = [
-    #path('autor_index/', views.AutorInicio.as_view(), name="autor_index"),
+    path('add_register/', views.RegisterLoan.as_view(), name="add_register"),
     
 ]

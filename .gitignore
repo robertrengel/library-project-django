@@ -1,0 +1,19 @@
+# Django settings
+settings.py
+
+# Migrations
+*/migrations/
+
+# Static files
+static/
+
+# Media files
+media/
+
+# Cache files
+*.pyc
+__pycache__/
+
+# Environments and dependencies
+env/
+node_modules/
