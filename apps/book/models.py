@@ -19,6 +19,7 @@ class Book(models.Model):
     cover = models.ImageField(upload_to="cover")
     views = models.PositiveIntegerField()
     objects = BooksManager()
+    stock = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title

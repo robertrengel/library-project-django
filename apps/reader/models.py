@@ -18,5 +18,10 @@ class Loan(models.Model):
     retuned = models.BooleanField()
     objects = LoanManager()
 
+    def save(self, *args, **kwargs):
+        self.book.stock = self.book.stock - 1
+        self.book.save()
+        super(Loan, self).save(*args, **kwargs)
+
     def __str__(self):
         return  self.book.title
