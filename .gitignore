@@ -17,3 +17,5 @@ __pycache__/
 # Environments and dependencies
 env/
 node_modules/
+
+venv/
