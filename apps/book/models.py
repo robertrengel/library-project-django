@@ -9,7 +9,7 @@ class Category(models.Model):
     objects = CategoryManager()
 
     def __str__(self):
-        return str(self.id) + " " + self.name
+        return f"{str(self.id)} {self.name}"
 
 class Book(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE,related_name="category_book")
@@ -23,3 +23,14 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+
+
+# --> COPY book_book TO 'D:/data/book_data.csv' WITH CSV HEADER;
+
+# --> COPY book_book FROM 'D:/data/book_data.csv' DELIMITER ',' CSV HEADER;
+
+# --> ALTER SEQUENCE book_book_autors_id_seq RESTART WITH 1;
+
+# --> ALTER SEQUENCE book_book_autors_id_seq RESTART WITH 1;

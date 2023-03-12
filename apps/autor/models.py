@@ -10,7 +10,7 @@ class Person(models.Model):
     age = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.firts_name + ' ' + self.last_name
+        return f'{self.firts_name} {self.last_name}'
 
     class Meta:
         abstract = True
