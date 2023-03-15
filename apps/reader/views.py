@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.http import HttpResponseRedirect
 from .models import Loan
-from .forms import LoanForm
+from .forms import LoanForm, MultipleLoanForm
 # Create your views here.
 
 class RegisterLoan(FormView):
@@ -54,3 +54,22 @@ class AddRegisterLoan(FormView):
 
 class SuccesTemplete(TemplateView):
     template_name = "reader/loan.html"     
+    
+class AddMultipleRegisterLoan(FormView):
+    template_name = "reader/add_register_multiple_loan.html"
+    form_class = MultipleLoanForm
+    success_url = "."
+
+    def form_valid(self, form):
+        loans = []
+        for l in form.cleaned_data["books"]:    
+            loan = Loan(
+                reader=form.cleaned_data["reader"],
+                book = l,
+                loan_date = date.today(),
+                retuned = False
+                )
+            loans.append(loan)
+        Loan.objects.bulk_create(loans)    
+
+        return super(AddMultipleRegisterLoan, self).form_valid(form)

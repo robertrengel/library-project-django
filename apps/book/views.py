@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, FormView, DetailView
 from . models import Book, Category
@@ -14,8 +14,8 @@ class BooksInicio(ListView):
         date2 = self.request.GET.get("date2", "")
         
         if date1 and date2:
-            date1 = datetime.datetime.strptime(date1, "%Y-%m-%d").date()
-            date2 = datetime.datetime.strptime(date2, "%Y-%m-%d").date()
+            date1 = datetime.strptime(date1, "%Y-%m-%d").date()
+            date2 = datetime.strptime(date2, "%Y-%m-%d").date()
             return Book.objects.buscar_libros_fecha(keyword, date1, date2)
         else:
             return Book.objects.buscar_libros(keyword)
