@@ -3,12 +3,9 @@ from apps.book.models import Book
 from .managers import LoanManager
 from apps.autor.models import Person
 
-# Create your models here.
-
 class Reader(Person):
     class Meta:
         verbose_name = "Reader"
-
 
 class Loan(models.Model):
     reader = models.ForeignKey(Reader, on_delete=models.CASCADE)

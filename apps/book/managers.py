@@ -15,10 +15,7 @@ class BooksManager(models.Manager):
         return self.filter(title__icontains=kword, release_date__range=(date1,date2))
     
     def buscar_libros_trigram(self, kword):
-        if kword:
-            return self.filter(title__trigram_similar=kword)
-        else:
-            return self.all()[:10]
+        return self.filter(title__trigram_similar=kword) if kword else self.all()[:10]
     
     def books_category(self, kword):
         return self.filter(category__id=kword)
